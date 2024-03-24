@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Router, Routes } from "react-router-dom";
 
 import "./App.css";
 
@@ -67,8 +67,10 @@ import Section9 from "./Components1/Section9.js";
 import CanvaApp from "./CanvaApp.js";
 import Section8 from "./Components1/Section8.js";
 import ProductPage from "./Pages/ProductPage.js";
+import Login from "./Components1/Login.js";
 
 function App() {
+  const token = localStorage.getItem("token");
   return (
     <BrowserRouter>
       <Routes>
@@ -85,7 +87,7 @@ function App() {
         <Route path="/Cref2" element={<Createeventformcompo2 />} />
         <Route path="/Cref3" element={<Createeventformcompo3 />} />
 
-     
+        <Route path="/lg" element={<Login />} />
         <Route path="/ca" element={<Createacccompo1 />} />
         <Route path="/fgg" element={<Forgetpasscompo1 />} />
         <Route path="/tcc" element={<Termscompo />} />
@@ -126,7 +128,15 @@ function App() {
         <Route path="/td" element={<Tdpage />} />
         <Route path="/Volap" element={<Volapppage />} />
         <Route path="/volfom" element={<Volformpage />} />
-        <Route path="/Cefp" element={<Createventformpage />} />
+        <Route
+          path="/Cefp"
+          element={token ? <Createventformpage /> : <Navigate to="/lp" />}
+        />
+
+<Route
+          path="/lp"
+          element={!token ? <Loginpage /> : <Navigate to="/pfg" />}
+        />
 
         <Route path="/login" element={<Loginpage />} />
         <Route path="/register" element={<Createaccpage />} />
@@ -136,7 +146,13 @@ function App() {
         <Route path="/abu" element={<Aboutuspage />} />
         <Route path="/tdp" element={<Ticketdetailpage />} />
         <Route path="/fep" element={<Findeventpage />} />
-        <Route path="/pfg" element={<Profilepage />} />
+
+        <Route
+          path="/pfg"
+          element={token ? <Profilepage /> : <Navigate to="/lp" />}
+        />
+
+
         <Route path="/cup" element={<Contactuspage />} />
         <Route path="/" element={<Sectionpage />} />
         <Route path="/Secur" element={<Securitypage />} />

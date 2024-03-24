@@ -32,9 +32,7 @@ function Footer () {
                                 <li className="text-base text-gray-600 hover:text-gray-700 mb-5">
                                     <a href="cefp">List Event</a>
                                 </li>
-                                <li className="text-base text-gray-600 hover:text-gray-700 mb-5">
-                                    <a href="fep">Find Event</a>
-                                </li>
+                                
                                 
                                 
                             </ul>

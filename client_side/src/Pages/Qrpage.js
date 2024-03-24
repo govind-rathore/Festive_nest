@@ -20,6 +20,7 @@ const Qrpage = () => {
         <Qrcompo2/>
         <div style={{ marginBottom: '20px' }}></div>
         
+        
         <Qrcompo4/>
         <div style={{ marginBottom: '20px' }}></div>
         <Footer/>

@@ -8,13 +8,14 @@ const handleLoginRedirect = () => {
 };
 
 function Section8() {
-  const [products, setProducts] = useState([]);
+  const [getAllEvents, setGetAllEvents] = useState([]);
+  const [imagePaths, setImagePaths] = useState([]);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/products');
-        setProducts(response.data.data.slice(0, 8)); // Limit the number of products to 8
+        const response = await axios.get(`http://localhost:8000/event/getAllEvents`);
+        setGetAllEvents(response.data.data.slice(0, 8)); // Limit the number of products to 8
       } catch (error) {
         console.error('Error fetching products:', error);
       }
@@ -22,6 +23,23 @@ function Section8() {
 
     fetchProducts();
   }, []);
+
+  useEffect(() => {
+    // Define array of image paths
+    const images = [
+      '/Images/upcoming img 3.png',
+      '/Images/upcoming img 4.png',
+      '/Images/upcoming img 8.png',
+      '/Images/upcoming img 5.png',
+      '/Images/upcoming img 2.png',
+      '/Images/upcoming img 6.png',
+      '/Images/upcoming img 7.png',
+      // Add more image paths as needed
+    ];
+    setImagePaths(images);
+  }, []);
+
+  
 
   const truncateDescription = (description) => {
     const maxLength = 100; // Maximum characters allowed
@@ -41,7 +59,7 @@ function Section8() {
         
       </div>
     <div className="flex flex-wrap justify-center">
-      {products.map((product, index) => (
+      {getAllEvents.map((product, index) => (
         <div key={product._id} className="m-4 h-96 w-60 md:w-80">
           <Link to={`/ticketdetail/${product._id}`} className="block h-full">
             <div className="overflow-hidden rounded-lg shadow-lg cursor-pointer h-full">
@@ -49,12 +67,12 @@ function Section8() {
                 {/* Retrieve image dynamically */}
                 {/* <img src={product.imageURL} alt="Product Image" />
                 <p>{product.imageURL}</p> */}
-                <img alt="blog photo" src="./Images/upcoming img 1.png" class="object-cover w-full max-h-40"/>
+                <img src={imagePaths[index % imagePaths.length]} alt={`Product Image ${index + 1}`} className="object-cover w-full max-h-40" />
 
                 <div className="w-full p-4 bg-white dark:bg-gray-800">
-                  <p className="font-medium text-indigo-500 text-md">{new Date(product.Event_Date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
-                  <p className="mb-2 text-xl font-medium text-gray-800 dark:text-white">{product.Event_Name}</p>
-                  <p className="font-light text-gray-400 dark:text-gray-300 text-md">{truncateDescription(product.Event_Description)}</p>
+                  <p className="font-medium text-indigo-500 text-md">{new Date(product.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+                  <p className="mb-2 text-xl font-medium text-gray-800 dark:text-white">{product.name}</p>
+                  <p className="font-light text-gray-400 dark:text-gray-300 text-md">{truncateDescription(product.description)}</p>
                 </div>
               </div>
             </div>
@@ -62,10 +80,10 @@ function Section8() {
         </div>
       ))}
       {/* Render a new row after every 4 products */}
-      {products.length > 0 && <div key={`row-${products.length}`} className="w-full" />}
+      {getAllEvents.length > 0 && <div key={`row-${getAllEvents.length}`} className="w-full" />}
     </div>
     <div style={{ backgroundColor: '#fffff' }} class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0">
-            <button onClick={() => handleLoginRedirect('/sec9')}  style={{ backgroundColor: '#FFFFFF' }} class="flex items-center justify-center w-full px-5 py-3 text-base font-medium leading-6 text-#2A0044 transition duration-150 ease-in-out bg-purple-500 border border-transparent rounded-md hover:bg-purple-400 focus:outline-none focus:bg-purple-400">
+            <button onClick={() => handleLoginRedirect('/sec9')}  style={{ backgroundColor: '#FFFFFF' }} class="flex items-center justify-center w-full px-5 py-3 text-base font-medium leading-6 text-#2A0044 transition duration-150 ease-in-out bg-purple-500 border border-transparent rounded-md hover:bg-purple-400 focus:outz  line-none focus:bg-purple-400">
                 Load More Event
             </button>
         </div>

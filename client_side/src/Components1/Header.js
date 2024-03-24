@@ -31,9 +31,7 @@ const Header = () => {
         <a class="block mt-4 mr-10 text-black lg:inline-block lg:mt-0 hover:text-black" href="/">
             Home
         </a>
-        <a class="block mt-4 mr-10 text-black lg:inline-block lg:mt-0 hover:text-black" href="fep">
-            Find Event
-        </a>
+        
         <a class="block mt-4 text-black lg:inline-block lg:mt-0 hover:text-black" href="cup">
             Contact
         </a>
@@ -42,7 +40,7 @@ const Header = () => {
         <a class="block mt-4 mr-10 text-black lg:inline-block lg:mt-0 hover:text-black" href="login">
             Login
         </a>
-        <a class="block mt-4 mr-10 text-black lg:inline-block lg:mt-0 hover:text-black" href="cefp">
+        <a class="block mt-4 mr-10 text-black lg:inline-block lg:mt-0 hover:text-black" href="cremp">
             List Event
         </a>
         <a class="block mt-4 text-black lg:inline-block lg:mt-0 hover:text-black" href="abu">
