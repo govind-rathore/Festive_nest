@@ -133,7 +133,7 @@ const Login = () => {
             </p>
             <a
               className="text-xs inline text-purple-700 hover:text-black"
-              href="caa"
+              href="register"
             >
               Create an account
             </a>

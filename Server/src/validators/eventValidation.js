@@ -27,7 +27,7 @@ const validateNewEvent = (event) => {
       .min(new Date())
       .required()
       .messages({ "date.min": "Schedule date can not be past date/time" }),
-    description: Joi.string().min(3).max(100).trim().optional().messages({
+    description: Joi.string().min(3).trim().optional().messages({
       "string.min": "Description should be minimum 3 characters long",
       "string.max": "Description should be maximum 100 characters long",
     }),

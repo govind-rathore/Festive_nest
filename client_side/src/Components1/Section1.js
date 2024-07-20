@@ -12,10 +12,7 @@ export default function Section1() {
                     <p className="text-base leading-normal text-center text-white mt-6">
                     Effortlessly design tickets that reflect your event's style and generate QR codes for seamless entry management. Make ticketing a breeze with Festive Nest!
                     </p>
-                    <div className="sm:border border-white flex-col sm:flex-row  flex items-center lg:w-5/12 w-full mt-12 space-y-4 sm:space-y-0">
-                        <input className="border border-white sm:border-transparent text-base w-full font-medium leading-none text-white p-4 focus:outline-none bg-transparent placeholder-white" placeholder="Search event" />
-                        <button className="focus:outline-none focus:ring-offset-2 focus:ring border border-white sm:border-transparent w-full sm:w-auto bg-white py-4 px-6 hover:bg-opacity-75">Search</button>
-                    </div>
+                   
                 </div>
             </div>
         </div>

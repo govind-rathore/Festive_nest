@@ -15,42 +15,42 @@ async function fetchData(url, params = {}) {
   }
 }
 const Createacccompo1 = () => {
-  const [showModal, setShowModal] = useState(false);
-  const [error, setError] = useState("");
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+    const [showModal, setShowModal] = useState(false);
+    const [error, setError] = useState("");
+    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
-  const toggleModal = async () => {
-    // setShowModal(!showModal);
-    if (username === "" || email === "" || password === "") {
-      setError("Please fill all fields");
-    } else {
-      fetchData("http://localhost:8000/user/createUser", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: username,
-          email,
-          password,
-        }),
-      })
-        .then((data) => {
-          console.log("Success:", data);
-          setShowModal(true);
+    const toggleModal = async () => {
+      // setShowModal(!showModal);
+      if (username === "" || email === "" || password === "") {
+        setError("Please fill all fields");
+      } else {
+        fetchData("http://localhost:8000/user/createUser", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: username,
+            email,
+            password,
+          }),
         })
-        .catch((error) => {
-          console.error("Error:", error);
-          setError(error.message);
-        });
-    }
-  };
-  return (
-    <div>
+          .then((data) => {
+            console.log("Success:", data);
+            setShowModal(true);
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            setError(error.message);
+          });
+      }
+    };
+    return (
       <div>
-        <div className="grid mt-0 mr-auto mb-0 ml-auto grid-cols-1 lg:max-w-screen-xl gap-0 lg:grid-cols-12">
+        <div>
+          <div className="grid mt-0 mr-auto mb-0 ml-auto grid-cols-1 lg:max-w-screen-xl gap-0 lg:grid-cols-12">
           <div className="col-span-1 lg:col-span-8 h-full"></div>
         </div>
       </div>
