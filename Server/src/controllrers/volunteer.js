@@ -1,4 +1,8 @@
 const volunteerService = require("../services/volunteerService");
+const dotenv = require("dotenv");
+
+// Load environment variables from .env file
+dotenv.config();
 
 // Apply new volunteer:-
 const applyVolunteer = async (req, res) => {

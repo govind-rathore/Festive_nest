@@ -1,13 +1,17 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const { isExistingEmail } = require("../services/userService");
+const dotenv = require("dotenv");
+
+// Load environment variables from .env file
+dotenv.config();
 
 const hashedPassword = async (password) => {
   return await bcrypt.hash(password, 10);
 };
 
 const generateToken = (payload) => {
-  return jwt.sign(payload, "festivenest");
+  return jwt.sign(payload, process.env.JWT_SECRET);
 };
 
 const comparePassword = async (userPassword, password) => {
@@ -26,7 +30,7 @@ const verifyUser = (req, res, next) => {
       .json({ status: false, message: "No auth token found" });
   }
   console.log(token, "token");
-  jwt.verify(token, "festivenest", async (err, user) => {
+  jwt.verify(token, process.env.JWT_SECRET, async (err, user) => {
     if (err) {
       return res.status(500).json({
         status: false,

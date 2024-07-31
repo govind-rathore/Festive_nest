@@ -1,8 +1,9 @@
+// Example of how to use environment variables in your code:
+
 const eventService = require("../services/eventService");
 const validation = require("../validators/eventValidation");
-const Event = require('../models/event')
+const Event = require('../models/event');
 
-// Register new organiser:-
 const createEvent = async (req, res) => {
   try {
     console.log(req.body);
@@ -11,6 +12,7 @@ const createEvent = async (req, res) => {
       return res
         .status(400)
         .json({ status: false, message: error.details[0].message });
+    
     let {
       name,
       email,
@@ -27,6 +29,7 @@ const createEvent = async (req, res) => {
       date,
       description,
     } = req.body;
+    
     name = name.toLowerCase().trim();
     email = email.toLowerCase().trim();
     hostedBy = hostedBy.toLowerCase().trim();
@@ -34,6 +37,7 @@ const createEvent = async (req, res) => {
     location = location.toLowerCase();
     category = category.toLowerCase();
     description = description.toLowerCase();
+    
     const eventData = {
       name,
       email,
@@ -50,27 +54,31 @@ const createEvent = async (req, res) => {
       date,
       description,
     };
+    
     const eventInfo = await eventService.createNewEvent(eventData);
+    
     return res.status(201).json({
       status: true,
       message: "Event created successfully",
       data: eventInfo,
     });
+    
   } catch (error) {
     console.log(error);
     return res.status(500).send({ status: false, message: error.message });
   }
 };
 
-// Get all events by category :-
 const getAllEventsByCategory = async (req, res) => {
   const category = req.query.category;
   const findCategory = await eventService.getEventsByCategory(category);
+  
   if (!findCategory.length)
     return res.status(404).json({
       status: false,
       message: `No event found in this ${category} category`,
     });
+  
   return res.status(200).json({
     status: true,
     message: "Events fetched successfully",
@@ -80,25 +88,25 @@ const getAllEventsByCategory = async (req, res) => {
 
 const getProductById = async (req, res) => {
   try {
-      const id = req.params.id;
-      const result = await Event.findById(id);
-      res.status(200)
-          .json({ message: "success", data: result });
+    const id = req.params.id;
+    const result = await Event.findById(id);
+    
+    res.status(200).json({ message: "success", data: result });
+    
   } catch (err) {
-      res.status(500)
-          .json({ message: "Internal server error" });
+    res.status(500).json({ message: "Internal server error" });
   }
 }
 
-
-// Get all events :-
 const getAllEvents = async (req, res) => {
   const findEvent = await eventService.getEvents();
+  
   if (!findEvent.length)
     return res.status(404).json({
       status: false,
       message: "No event found",
     });
+  
   return res.status(200).json({
     status: true,
     message: "Events fetched successfully",
