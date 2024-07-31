@@ -14,7 +14,7 @@ function Section8() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/event/getAllEvents`);
+        const response = await axios.get(`https://festive-nest-backend.onrender.com/event/getAllEvents`);
         setGetAllEvents(response.data.data.slice(0, 8)); // Limit the number of products to 8
       } catch (error) {
         console.error('Error fetching products:', error);

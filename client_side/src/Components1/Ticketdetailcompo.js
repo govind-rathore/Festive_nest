@@ -23,7 +23,7 @@ function Ticketdetailcompo() {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/event/${productId}`);
+        const response = await axios.get(`https://festive-nest-backend.onrender.com/event/${productId}`);
         setProduct(response.data.data);
       } catch (error) {
         console.error('Error fetching product details:', error);

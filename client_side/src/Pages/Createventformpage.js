@@ -50,7 +50,7 @@ const Createventformpage = () => {
                 console.log("Please fill all fields");
                 return;
               }
-              fetchData("http://localhost:8000/event/createEvent", {
+              fetchData("https://festive-nest-backend.onrender.com/event/createEvent", {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",

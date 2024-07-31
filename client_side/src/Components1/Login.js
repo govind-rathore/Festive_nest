@@ -33,7 +33,7 @@ const Login = () => {
     if (email === "" || password === "") {
       setError("Please fill all fields");
     } else {
-      fetchData("http://localhost:8000/user/loginUser", {
+      fetchData("https://festive-nest-backend.onrender.com/user/loginUser", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -26,7 +26,7 @@ const Createacccompo1 = () => {
       if (username === "" || email === "" || password === "") {
         setError("Please fill all fields");
       } else {
-        fetchData("http://localhost:8000/user/createUser", {
+        fetchData("https://festive-nest-backend.onrender.com/user/createUser", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
