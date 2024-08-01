@@ -58,7 +58,7 @@ function Section8() {
             <div className="overflow-hidden rounded-lg shadow-lg cursor-pointer h-full">
               <div className="block w-full h-full">
                 {/* Retrieve image dynamically */}
-                <img src={imagePaths[index % imagePaths.length]} alt={`Product Image ${index + 1}`} className="object-cover w-full max-h-40" />
+                <img src={imagePaths[index % imagePaths.length]} alt={`Product ${index + 1}`} className="object-cover w-full max-h-40" />
 
                 <div className="w-full p-4 bg-white dark:bg-gray-800">
                   <p className="font-medium text-indigo-500 text-md">{new Date(product.Event_Date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>

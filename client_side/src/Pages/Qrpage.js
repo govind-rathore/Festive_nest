@@ -1,6 +1,6 @@
 import React from "react";
 import Qrcompo1 from "../Components1/Qrcompo1.js";
-import Qrcompo3 from "../Components1/Qrcompo3.js";
+
 import Qrcompo4 from "../Components1/Qrcompo4.js";
 import Qrcompo2 from "../Components1/Qrcompo2.js";
 import Header from "../Components1/Header.js";
