@@ -12,7 +12,13 @@ console.log("MONGODB_URI:", process.env.MONGODB_URI);
 console.log("PORT:", process.env.PORT);
 
 const app = express();
-app.use(cors());
+app.use(cors(
+  {
+  origin: ["https://deploy-mern-1whq.vercel.app"],
+  methods: ["POST","GET"],
+  Credential: true
+}
+));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
