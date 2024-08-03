@@ -1,4 +1,4 @@
-import { BrowserRouter, Navigate, Route, Router, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
 import "./App.css";
 
@@ -64,7 +64,7 @@ import Platformcompoo1 from "./Components1/Platformcompoo1.js";
 import Platformcompoo2 from "./Components1/Platformcompoo2.js";
 import Eventcompo2 from "./Components1/Eventcompo2.js";
 import Section9 from "./Components1/Section9.js";
-import CanvaApp from "./CanvaApp.js";
+
 import Section8 from "./Components1/Section8.js";
 import ProductPage from "./Pages/ProductPage.js";
 import Login from "./Components1/Login.js";
@@ -162,7 +162,7 @@ function App() {
 
         <Route path="/cremp" element={<Creevemainpage />} />
 
-        <Route path="/working" element={<CanvaApp />} />\
+        
 
         <Route path="/product" element={<ProductPage />} />
        
